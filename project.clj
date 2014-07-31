@@ -3,7 +3,8 @@
   :url "http://github.com/puppetlabs/clj-schema-tools"
   :pedantic? :abort
 
-  :dependencies [[org.clojure/clojure "1.6.0"]]
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [prismatic/schema "0.2.6"]]
 
   :deploy-repositories [["releases" {:url "https://clojars.org/repo"
                                      :username :env/clojars_jenkins_username
