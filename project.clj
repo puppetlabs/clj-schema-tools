@@ -5,7 +5,7 @@
    :password :env/nexus_jenkins_password
    :sign-releases false})
 
-(defproject puppetlabs/schema-tools "0.1.0-SNAPSHOT"
+(defproject puppetlabs/schema-tools "0.1.0"
   :description "Tools for working with prismatic schema"
   :url "http://github.com/puppetlabs/clj-schema-tools"
   :pedantic? :abort
