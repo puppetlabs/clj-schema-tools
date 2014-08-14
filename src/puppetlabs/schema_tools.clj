@@ -16,7 +16,7 @@
     (prewalk trip-on-schema-error x)
     @!has?))
 
-(defn explain-schema-errors
+(defn- explain-schema-errors
   [x]
   (let [explainer (fn [x]
                     (condp = (class x)
@@ -28,7 +28,7 @@
       (recur explained)
       explained)))
 
-(defn ->client-explanation
+(defn- ->client-explanation
   "Transforms a schema explanation into one that makes more sense to a
   javascript client by removing any java.lang. prefixes and changing any
   Keyword symbols to String."
@@ -63,7 +63,7 @@
       (map first)
       vec)))
 
-(defn remove-passing-arguments
+(defn- remove-passing-arguments
   [{:keys [schema value error] :as data}]
   (if-not (sequential? error)
     data
@@ -77,7 +77,7 @@
        :value (remove-passing value)
        :error (remove-passing error)})))
 
-(defn remove-credentialed-arguments
+(defn- remove-credentialed-arguments
   [{:keys [schema value error] :as data}]
   (if-not (sequential? value)
     data
@@ -100,7 +100,7 @@
     (first x)
     x))
 
-(defn remove-argument-annotations
+(defn- remove-argument-annotations
   [{:keys [schema value error]}]
   (let [select-schema-or-error (fn [v]
                                  (if-not (sequential? v)
@@ -114,7 +114,7 @@
               (map select-schema-or-error)
               unwrap-if-length-one)}))
 
-(defn simplify-argument-schema-exception-data
+(defn- simplify-argument-schema-exception-data
   "Simplifies the schema, value, and error exception data from a schema
   validation exception so that exceptions from schema.core/defn's argument
   schemas don't contain any extraneous information about arguments that didn't
@@ -134,7 +134,7 @@
     remove-credentialed-arguments
     remove-argument-annotations))
 
-(defn explain-schema-exception-data
+(defn- explain-schema-exception-data
   [{:keys [value schema error]}]
   {:value value
    :schema (-> schema sc/explain ->client-explanation)
