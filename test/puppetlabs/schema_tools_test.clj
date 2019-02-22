@@ -10,7 +10,7 @@
         data {:value value, :schema schema, :error error}]
 
     (testing "reports strings as `String` in schema and error explanations"
-      (is (= {:schema {:a 'String, :b 'String}
+      (is (= {:schema {:a 'Str, :b 'Str}
               :value value
               :error {:a '(not (instance? String 1))}}
              (explain-and-simplify-exception-data data))))))

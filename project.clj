@@ -1,4 +1,4 @@
-(defproject puppetlabs/schema-tools "0.1.1-SNAPSHOT"
+(defproject puppetlabs/schema-tools "1.0.0-SNAPSHOT"
   :description "Tools for working with prismatic schema"
   :url "http://github.com/puppetlabs/clj-schema-tools"
   :license {:name "Apache License, Version 2.0"
@@ -6,8 +6,8 @@
 
   :pedantic? :abort
 
-  :dependencies [[org.clojure/clojure "1.6.0"]
-                 [prismatic/schema "0.2.6"]]
+  :dependencies [[org.clojure/clojure "1.9.0"]
+                 [prismatic/schema "1.1.0"]]
 
   :deploy-repositories [["releases" {:url "https://clojars.org/repo"
                                      :username :env/clojars_jenkins_username
