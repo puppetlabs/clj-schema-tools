@@ -6,7 +6,7 @@
 
   :pedantic? :abort
 
-  :dependencies [[org.clojure/clojure "1.9.0"]
+  :dependencies [[org.clojure/clojure "1.12.3"]
                  [prismatic/schema "1.1.0"]]
 
   :deploy-repositories [["releases" {:url "https://clojars.org/repo"
